@@ -126,3 +126,9 @@ CCTB - College
 </body>
 
 </html>
+<script>
+    document.getElementById("dialog-box").addEventListener("click", function() {
+        var language = prompt("Please enter your preferred programming language:");
+        document.querySelector("h1.mb-5.text-danger").textContent = language;
+    });
+</script>
