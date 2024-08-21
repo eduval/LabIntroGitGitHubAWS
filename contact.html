@@ -229,3 +229,33 @@
 </body>
 
 </html>
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+        var name = document.getElementById("contact_name").value;
+        var email = document.getElementById("contact_email").value;
+        var phone = document.getElementById("contact_phone").value;
+        var message = document.getElementById("contact_message").value;
+
+        if (name.length < 5) {
+            alert("Name must be at least 5 characters long.");
+            event.preventDefault();
+        }
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+        }
+        if (isNaN(phone)) {
+            alert("Phone number must contain only numbers.");
+            event.preventDefault();
+        }
+        if (message.length < 5) {
+            alert("Message must be at least 5 characters long.");
+            event.preventDefault();
+        }
+    });
+
+    function validateEmail(email) {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+</script>
